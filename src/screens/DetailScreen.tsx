@@ -1,13 +1,25 @@
+import { StackScreenProps } from '@react-navigation/stack'
 import React from 'react'
-import{ Text, View} from 'react-native'
+import { Movie } from '../interfaces/movieinterfaces'
+import { MovieDetail } from '../components/MovieDetail';
+import { View } from 'react-native';
+import {styles} from '../theme/appTheme'
 
-export const DetailScreen = () => {
+interface Props extends StackScreenProps<any,any>{};
+
+export const DetailScreen = ({route}:Props) => {
+
+  const movie= route.params as Movie
+ 
+
+  
+  // console.log(movie)
+
   return (
-    <View>
-
-      <Text> Detail </Text>
-
-
+    <View style={{marginTop:10 }} >
+    <MovieDetail movie={movie}/>
     </View>
   )
 }
+
+
